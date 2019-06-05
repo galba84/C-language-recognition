@@ -75,14 +75,14 @@ void printTextSymbInfo(TextSymbolsInfo &info) {
                   << "\n";
     }
 
-
-    cout << "print average deviation " + std::to_string(info.diffetenceInSimilarity) << endl;
+    cout << "print all deviation " + std::to_string(info.diffetenceInSimilarity) << endl;
+    cout << "print average deviation " + std::to_string(info.diffetenceInSimilarityAvarage) << endl;
     cout << "It looks like the language of message is " + languageFromLandId(predictLanguage(info)) << endl;
 
 }
 
 int predictLanguage(TextSymbolsInfo &info) {
-    if (info.diffetenceInSimilarity < 1.3) {
+    if ((info.diffetenceInSimilarityAvarage < 1.3)&&(info.diffetenceInSimilarity < 33)) {
         return info.langId;
     } else return UNKNOWN_LANG_ID;
 }
@@ -112,8 +112,8 @@ void calculateSymFrequencyDifference(TextSymbolsInfo &info, int langId) {
         info.symFrequencySimilarity.insert(std::make_pair(it->first, deviation));
     }
     if (deviationAll > 0) {
-        deviationAll = deviationAll / info.symFrequencySimilarity.size();
     } else deviationAll = 100;
+    info.diffetenceInSimilarityAvarage=deviationAll / info.symFrequencySimilarity.size();
     info.diffetenceInSimilarity = deviationAll;
     info.langId = langId;
 }

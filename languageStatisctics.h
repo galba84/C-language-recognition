@@ -21,6 +21,7 @@ struct TextSymbolsInfo {
     string rawText;
     int langId;
     float diffetenceInSimilarity;
+    float diffetenceInSimilarityAvarage;
     map<char, int> symCounter;
     map<char, float> symFrequencyStat;
     map<char, float> symFrequencySimilarity;

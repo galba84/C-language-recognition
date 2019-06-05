@@ -2,13 +2,8 @@
 // Created by Oleksandr Sereda on 5/30/2019.
 //
 
-#include<iostream>
-#include<string> // for string class
-#include <vector>
 #include "languageStatisctics.h"
 #include "menu.h"
-
-using namespace std;
 
 int main() {
     int menuId = MAIN_MENU_ID;
